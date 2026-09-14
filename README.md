@@ -56,15 +56,21 @@ https://github.com/vanshp-e2m/task5
 ## 🎨 Responsive Design Screenshots
 
 ### Desktop View (1440px+)
-![Desktop View](screenshots/desktop-view.png)
+![Desktop View](screenshots/desktop_view.png)
 - Full navigation with logo and CTA
 - Hero section with credit card visuals
 - Multi-column feature layouts
 - Pricing cards in 3-column grid
 - Blog posts in 3-column grid
 
+### Laptop View (Standard Laptop)
+![Laptop View](screenshots/laptop_view.png)
+- Optimized for standard laptop screens
+- Balanced layout between desktop and tablet
+- Responsive navigation and content
+
 ### Tablet View (768px)
-![Tablet View](screenshots/tablet-view.png)
+![Tablet View](screenshots/tablet_view.png)
 - Stacked navigation elements
 - Hero content adapts to 2-column layout
 - Features stack to 1-2 columns
@@ -72,7 +78,7 @@ https://github.com/vanshp-e2m/task5
 - Blog posts adjust to 2-column grid
 
 ### Mobile View (480px)
-![Mobile View](screenshots/mobile-view.png)
+![Mobile View](screenshots/mobile_view.png)
 - Hamburger navigation menu
 - Single column hero layout
 - All sections stack vertically

@@ -33,12 +33,12 @@
 - Code quality analysis
 - Production recommendations
 
-### ✅ Screenshots (Placeholders)
+### ✅ Screenshots
 **Location**: `screenshots/` directory
-- **desktop-view.png** - Desktop view (1440px+)
-- **tablet-view.png** - Tablet view (768px) 
-- **mobile-view.png** - Mobile view (480px)
-- *Note: Add actual screenshots to complete this requirement*
+- **desktop_view.png** - Desktop view (1440px+)
+- **laptop_view.png** - Laptop view (standard laptop)
+- **tablet_view.png** - Tablet view (768px) 
+- **mobile_view.png** - Mobile view (480px)
 
 ### ✅ Demo Videos
 **Location**: External links (see README.md)
@@ -104,7 +104,7 @@ All sections implemented as ACF Flexible Content layouts:
 | ACF JSON | ✅ Complete | `pixesaas/acf-json/` |
 | Decision note | ✅ Complete | `pixesaas/DECISION_NOTE.md` |
 | Robustness testing | ✅ Complete | `pixesaas/ROBUSTNESS_TESTING.md` |
-| Screenshots (3 breakpoints) | ⚠️ Placeholders | `screenshots/` directory |
+| Screenshots (3 breakpoints) | ✅ Complete | `screenshots/` directory |
 | 7-minute Loom video | ✅ Complete | External links (5 min provided) |
 | Front-end demo | ✅ Complete | Video shows complete site |
 | wp-admin editing demo | ✅ Complete | Video shows ACF editing |
