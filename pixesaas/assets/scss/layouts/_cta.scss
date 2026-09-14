@@ -1,0 +1,290 @@
+@use '../base' as *;
+
+// Free-trial CTA - Figma node 1:3852 (Container 11, 1440 x 698)
+//
+//   1:3852  bg #f9f9fb, gap 60px, items-center, padding 80px 160px 0
+//           (no bottom padding, so the mockup meets the section edge)
+//   1:3853  phone mockup 500 x 618, object-cover
+//   1:3854  content column, flex-col, gap 50px, padding-top 40px
+//   1:3856  heading 61px Semi Bold, width 560px
+//   1:3857  subtext 20px Regular
+//   1:3860  email field 354 x 64, white, 1px black border, radius 10, pad 20
+//   1:3862  submit 175 x 64, black, radius 10, label 20px white
+//   1:3864  trust row gap 20px; each item gap 10px; tick 20px; text 16px
+//   1:3871  app badges 196 x 58, gap 10px
+
+$cta-visual-w: 500px;
+$cta-visual-h: 618px;
+$cta-field-w: 354px;
+$cta-submit-w: 175px;
+$cta-control-h: 64px;
+$cta-badge-w: 196px;
+$cta-badge-h: 58px;
+
+.section-cta-promo {
+	background-color: $grey-bg;
+	overflow: hidden;
+}
+
+.cta-promo {
+	max-width: $container-width + $gutter * 2;
+	margin: 0 auto;
+	// No bottom padding: the mockup is meant to touch the section edge.
+	padding: 80px clamp(24px, 11.11vw, #{$gutter}) 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 60px;
+}
+
+.cta-promo__visual {
+	flex-shrink: 0;
+	width: $cta-visual-w;
+	height: $cta-visual-h;
+	align-self: flex-end;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+	}
+}
+
+.cta-promo__content {
+	flex-shrink: 0;
+	width: 560px;
+	max-width: 100%;
+	padding-top: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 50px;
+}
+
+.cta-promo__copy {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+	color: $black;
+}
+
+.cta-promo__heading {
+	width: 560px;
+	max-width: 100%;
+	margin: 0;
+	font-size: 61px;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.cta-promo__subtext {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* ---------- Signup ---------- */
+
+.cta-promo__signup {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.cta-promo__form {
+	display: flex;
+	align-items: flex-start;
+	gap: 15px;
+}
+
+.cta-promo__field {
+	box-sizing: border-box;
+	width: $cta-field-w;
+	height: $cta-control-h;
+	padding: 20px;
+	border: 1px solid $black;
+	border-radius: 10px;
+	background-color: $white;
+	font-family: inherit;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: normal;
+	color: $black;
+
+	&::placeholder {
+		color: $black;
+		opacity: 1;
+	}
+
+	&:focus-visible {
+		outline: 2px solid $black;
+		outline-offset: 2px;
+	}
+}
+
+.cta-promo__submit {
+	box-sizing: border-box;
+	width: $cta-submit-w;
+	height: $cta-control-h;
+	padding: 20px 0;
+	border: 1px solid $black;
+	border-radius: 10px;
+	background-color: $black;
+	font-family: inherit;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: normal;
+	color: $white;
+	text-align: center;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.85;
+	}
+}
+
+.cta-promo__trust {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.cta-promo__trust-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: $black;
+
+	img {
+		display: block;
+		flex-shrink: 0;
+		width: 20px;
+		height: 20px;
+	}
+}
+
+/* ---------- App badges ---------- */
+
+.cta-promo__apps {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.cta-promo__app {
+	flex-shrink: 0;
+
+	a {
+		display: block;
+		transition: opacity 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			opacity: 0.85;
+		}
+	}
+
+	img {
+		display: block;
+		width: $cta-badge-w;
+		height: $cta-badge-h;
+		object-fit: contain;
+	}
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1180px) {
+	.cta-promo {
+		gap: 40px;
+	}
+
+	.cta-promo__visual {
+		width: clamp(260px, 34vw, #{$cta-visual-w});
+		height: auto;
+	}
+
+	.cta-promo__content {
+		width: auto;
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.cta-promo__heading {
+		width: 100%;
+		font-size: clamp(32px, 5vw, 61px);
+	}
+}
+
+@media (max-width: 900px) {
+	.cta-promo {
+		flex-direction: column-reverse;
+		align-items: center;
+		gap: 48px;
+		padding-top: 48px;
+	}
+
+	.cta-promo__content {
+		width: 100%;
+		max-width: 560px;
+		padding-top: 0;
+		gap: 32px;
+		align-items: center;
+		text-align: center;
+	}
+
+	.cta-promo__copy,
+	.cta-promo__signup {
+		align-items: center;
+	}
+
+	.cta-promo__visual {
+		width: 100%;
+		max-width: 360px;
+		align-self: center;
+	}
+}
+
+@media (max-width: $mobile) {
+	.cta-promo__form {
+		flex-direction: column;
+		align-self: stretch;
+	}
+
+	.cta-promo__field,
+	.cta-promo__submit {
+		width: 100%;
+	}
+
+	.cta-promo__trust {
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.cta-promo__apps {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.cta-promo__app img {
+		width: clamp(140px, 44vw, #{$cta-badge-w});
+		height: auto;
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "name": "pixesaas-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PixeSaaS - ACF Flexible Content SaaS Landing Page Theme",
+  "scripts": {
+    "build": "sass assets/scss/style.scss:style.css --style=expanded --load-path=assets/scss --no-source-map",
+    "watch": "sass assets/scss/style.scss:style.css --style=expanded --load-path=assets/scss --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.104.1"
+  }
+}

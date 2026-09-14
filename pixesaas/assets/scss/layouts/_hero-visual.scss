@@ -1,0 +1,417 @@
+@use '../base' as *;
+
+// Hero visual - Figma node 1:52 (Container 03, 1440 x 780)
+//
+// The cards and charts are a single exported backdrop (imgContainer, 1140x700);
+// the caption, trust counter, logo row and pay card sit on top as live text.
+//
+//   1:52  bg white, items-center, justify-center, overflow hidden, pb 80px
+//   1:53  stage 1140 x 700, backdrop absolute inset-0 object-contain
+//   1:54  left  446 wide, column, justify-between, pt 150px
+//   1:57  trusted row, logos 40px each, gap 20px
+//   1:85  right 694 wide, column, items-end, justify-between, pt 120px
+//   1:86  counter  bg #f9f9fb, padding 20px, radius 13px, gap 15px
+//   1:88  avatars  56px circles, 1px white border, -20px overlap
+//   1:94  pay card bg #ffd34e, radius 20px, padding 18px, rotated 3.33deg
+
+$stage-w: 1140px;
+$stage-h: 700px;
+$hero-visual-stack-at: $tablet;
+
+.section-hero-visual {
+	background-color: $white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 80px;
+	overflow: hidden;
+}
+
+.hero-visual {
+	position: relative;
+	flex-shrink: 0;
+	width: $stage-w;
+	height: $stage-h;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-visual__backdrop {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: contain;
+	pointer-events: none;
+}
+
+/* ---------- Left column (1:54) ---------- */
+
+.hero-visual__left {
+	position: relative;
+	flex-shrink: 0;
+	width: 446px;
+	height: $stage-h;
+	padding-top: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.hero-visual__caption {
+	width: 191px;
+	margin: 0 0 0 70px;
+	font-size: 20px;
+	line-height: 1.4;
+	color: $grey;
+}
+
+.hero-visual__caption-lead {
+	font-weight: 300;
+}
+
+.hero-visual__caption-strong {
+	font-weight: 400;
+}
+
+.hero-visual__trusted {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 20px;
+}
+
+.hero-visual__trusted-label {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: $grey;
+	white-space: nowrap;
+}
+
+.hero-visual__trusted-logos {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.hero-visual__trusted-logo {
+	flex-shrink: 0;
+	width: 40px;
+	height: 40px;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+/* ---------- Right column (1:85) ---------- */
+
+.hero-visual__right {
+	position: relative;
+	flex-shrink: 0;
+	width: 694px;
+	height: $stage-h;
+	padding-top: 120px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+/* Trust counter (1:86) */
+
+.hero-counter {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	padding: 20px;
+	border-radius: 13px;
+	background-color: $grey-bg;
+}
+
+.hero-counter__avatars {
+	display: flex;
+	align-items: flex-start;
+}
+
+.hero-counter__avatar {
+	flex-shrink: 0;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	border: 1px solid $white;
+	overflow: hidden;
+	margin-right: -20px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+}
+
+.hero-counter__text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3px;
+	white-space: nowrap;
+}
+
+.hero-counter__value {
+	margin: 0;
+	font-size: 25px;
+	font-weight: 500;
+	line-height: normal;
+	color: $black;
+}
+
+.hero-counter__label {
+	margin: 0;
+	font-size: 12px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $black;
+}
+
+/* Pay card (1:94) */
+
+.hero-pay {
+	width: 303.365px;
+	height: 275.199px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-pay__card {
+	width: 287.92px;
+	padding: 18px;
+	border-radius: 20px;
+	background-color: #ffd34e;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 23.554px;
+	transform: rotate(3.33deg);
+}
+
+.hero-pay__top {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.hero-pay__brand {
+	display: flex;
+	align-items: center;
+	gap: 2.952px;
+}
+
+.hero-pay__brand-mark {
+	position: relative;
+	flex-shrink: 0;
+	width: 21.404px;
+	height: 21.404px;
+	border-radius: 50%;
+	background-color: $white;
+
+	img {
+		position: absolute;
+		inset: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.hero-pay__brand-name {
+	font-size: 12.456px;
+	font-weight: 300;
+	line-height: normal;
+	color: $black;
+	white-space: nowrap;
+}
+
+.hero-pay__period {
+	font-size: 10.241px;
+	font-weight: 300;
+	line-height: normal;
+	color: $grey;
+	white-space: nowrap;
+}
+
+.hero-pay__amount {
+	margin: 0;
+	font-size: 30.722px;
+	font-weight: 500;
+	line-height: normal;
+	color: $black;
+	white-space: nowrap;
+}
+
+.hero-pay__blurb {
+	margin: 0;
+	font-size: 10.241px;
+	font-weight: 300;
+	line-height: normal;
+	color: $grey;
+	white-space: nowrap;
+}
+
+.hero-pay__note {
+	width: 238.609px;
+	max-width: 100%;
+	margin: 0;
+	font-size: 10.241px;
+	font-weight: 300;
+	line-height: normal;
+	color: $grey;
+}
+
+.hero-pay__row {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 6px 12px;
+	border-radius: 5px;
+	background-color: #fff4d3;
+}
+
+.hero-pay__secondary {
+	display: flex;
+	align-items: baseline;
+	gap: 2.048px;
+	white-space: nowrap;
+}
+
+.hero-pay__secondary-amount {
+	font-size: 15.361px;
+	font-weight: 500;
+	line-height: normal;
+	color: $black;
+}
+
+.hero-pay__secondary-period {
+	font-size: 10.241px;
+	font-weight: 300;
+	line-height: normal;
+	color: $grey;
+}
+
+.hero-pay__button {
+	flex-shrink: 0;
+	padding: 5.12px 15.361px;
+	border-radius: 5.12px;
+	background-color: $dark-green;
+	font-size: 10.241px;
+	font-weight: 400;
+	line-height: normal;
+	color: $white;
+	white-space: nowrap;
+}
+
+/* ---------- Between the design width and the stack point ---------- */
+//
+// The stage has fixed internal geometry, so rather than reflowing it (which
+// would pull the overlays off the cards they label) it is scaled down as one
+// piece. The section takes an explicit height because the scaled child still
+// reserves its unscaled 700px in layout.
+
+@media (min-width: #{$hero-visual-stack-at + 1px}) and (max-width: 1199px) {
+	.section-hero-visual {
+		align-items: flex-start;
+		padding-bottom: 0;
+		height: calc(#{$stage-h} * ((100vw - 48px) / #{$stage-w}) + 80px);
+	}
+
+	.hero-visual {
+		transform: scale(calc((100vw - 48px) / #{$stage-w}));
+		transform-origin: top center;
+	}
+}
+
+/* ---------- Stacked ---------- */
+//
+// Below the stack point the scale factor would drop under ~0.6 and the 10px
+// label text in the pay card stops being readable, so the composite unstacks:
+// the backdrop becomes a plain responsive image and the overlays follow it in
+// document order at their normal sizes.
+
+@media (max-width: $hero-visual-stack-at) {
+	.section-hero-visual {
+		padding: 0 24px 48px;
+	}
+
+	.hero-visual {
+		width: 100%;
+		max-width: 560px;
+		height: auto;
+		flex-direction: column;
+		align-items: center;
+		gap: 32px;
+		transform: none;
+	}
+
+	.hero-visual__backdrop {
+		position: static;
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	.hero-visual__left,
+	.hero-visual__right {
+		width: 100%;
+		height: auto;
+		padding-top: 0;
+		align-items: center;
+		gap: 28px;
+	}
+
+	.hero-visual__caption {
+		width: 100%;
+		margin-left: 0;
+		text-align: center;
+	}
+
+	.hero-visual__trusted {
+		flex-direction: column;
+		justify-content: center;
+		gap: 14px;
+	}
+
+	.hero-pay {
+		width: 100%;
+		height: auto;
+	}
+
+	.hero-pay__card {
+		// Un-rotated when stacked: the tilt reads as an overlap cue against the
+		// card artwork, and out of that context it just looks misaligned.
+		width: 100%;
+		max-width: 320px;
+		margin: 0 auto;
+		transform: none;
+	}
+}

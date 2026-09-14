@@ -1,0 +1,327 @@
+@use '../base' as *;
+
+// Steps - Figma node 1:3706 (Container 07, 1440 x 1094)
+//
+//   1:3706  bg white, flex-col, gap 30px, items-center, padding 80px 160px
+//   1:3707  heading 61px Semi Bold, centred
+//   1:3708  subtext 20px Regular black, centred, width 667px
+//   1:3709  boxes: flex-col, gap 32px, padding-top 86px, width 1120px
+//   1:3710  featured wrapper: tinted, height 320px, radius 20, items-end, gap 30
+//   1:3711  wide card 668px, padding 40px 50px, gap 30
+//   1:3720  illustration 350x406, top corners 50px - overhangs the wrapper by 86px
+//   1:3721  row: justify-between, width 1120px
+//   1:3722  compact card, padding 40px 26px, radius 20, gap 30, centred
+//
+// The 86px padding-top on the boxes wrapper is what gives the illustration
+// room to sit above the tinted panel rather than being clipped by it.
+
+$steps-boxes-w: 1120px;
+$steps-featured-h: 320px;
+$steps-wide-w: 668px;
+$steps-illus-w: 350px;
+$steps-illus-h: 406px;
+$steps-overhang: $steps-illus-h - $steps-featured-h; // 86px
+
+.section-steps {
+	background-color: $white;
+}
+
+.steps {
+	max-width: $container-width + $gutter * 2;
+	margin: 0 auto;
+	padding: 80px clamp(24px, 11.11vw, #{$gutter});
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+}
+
+.steps__heading {
+	margin: 0;
+	font-size: 61px;
+	font-weight: 600;
+	line-height: normal;
+	text-align: center;
+	color: $black;
+
+	@media (max-width: 1100px) {
+		font-size: clamp(32px, 5.5vw, 61px);
+	}
+}
+
+.steps__subtext {
+	width: 667px;
+	max-width: 100%;
+	margin: 0;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: normal;
+	text-align: center;
+	color: $black;
+}
+
+.steps__boxes {
+	width: $steps-boxes-w;
+	max-width: 100%;
+	padding-top: $steps-overhang;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 32px;
+}
+
+/* ---------- Featured step (1:3710 + 1:3711 + 1:3720) ---------- */
+
+.steps__featured {
+	width: 100%;
+	height: $steps-featured-h;
+	border-radius: 20px;
+	display: flex;
+	align-items: flex-end;
+	gap: 30px;
+}
+
+.steps__illustration {
+	flex-shrink: 0;
+	width: $steps-illus-w;
+	height: $steps-illus-h;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+	overflow: hidden;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+/* ---------- Cards ---------- */
+
+.step-card {
+	display: flex;
+	flex-direction: column;
+	border-radius: 20px;
+}
+
+.step-card--wide {
+	width: $steps-wide-w;
+	flex-shrink: 0;
+	height: 100%;
+	padding: 40px 50px;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+.step-card--compact {
+	width: 352px;
+	padding: 40px 26px;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	text-align: center;
+}
+
+.step-card__head {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+
+	.step-card--wide & {
+		align-items: flex-start;
+	}
+
+	.step-card--compact & {
+		align-items: center;
+	}
+}
+
+.step-card__badge {
+	flex-shrink: 0;
+	width: 42px;
+	height: 42px;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.step-card__badge--lg {
+	width: 60px;
+	height: 60px;
+}
+
+.step-card__text {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	color: $black;
+}
+
+.step-card__title {
+	margin: 0;
+	font-weight: 400;
+	line-height: normal;
+	color: $black;
+
+	.step-card--wide & {
+		font-size: 49px;
+		font-weight: 500;
+	}
+
+	.step-card--compact & {
+		font-size: 31px;
+	}
+}
+
+.step-card__body {
+	margin: 0;
+	font-weight: 400;
+	line-height: normal;
+	color: $black;
+
+	.step-card--wide & {
+		width: 568px;
+		max-width: 100%;
+		font-size: 20px;
+	}
+
+	.step-card--compact & {
+		width: 300px;
+		max-width: 100%;
+		font-size: 16px;
+	}
+}
+
+.step-card__link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	background-color: transparent;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: $black;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.6;
+	}
+
+	img {
+		display: block;
+		width: 24px;
+		height: 24px;
+		flex-shrink: 0;
+	}
+}
+
+.steps__row {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 32px;
+}
+
+/* ---------- Tints (Figma colour variables) ---------- */
+
+.step--green  { background-color: $green-bg; }
+.step--blue   { background-color: $blue-bg; }
+.step--pink   { background-color: $pink-bg; }
+.step--yellow { background-color: $yellow-bg; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1180px) {
+	.steps__featured {
+		height: auto;
+		align-items: stretch;
+	}
+
+	.step-card--wide {
+		width: auto;
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.steps__illustration {
+		width: clamp(200px, 30vw, #{$steps-illus-w});
+		height: auto;
+		align-self: flex-end;
+	}
+
+	.steps__row {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.step-card--compact {
+		width: calc(50% - 16px);
+		min-width: 280px;
+	}
+}
+
+@media (max-width: $tablet) {
+	.steps {
+		padding-top: 48px;
+		padding-bottom: 48px;
+	}
+
+	// The illustration no longer has room to overhang, so it stacks above the
+	// copy and the reserved 86px goes away with it.
+	.steps__boxes {
+		padding-top: 0;
+	}
+
+	.steps__featured {
+		flex-direction: column-reverse;
+		align-items: center;
+	}
+
+	.steps__illustration {
+		width: 100%;
+		max-width: 320px;
+		align-self: center;
+		border-radius: 20px 20px 0 0;
+	}
+
+	.step-card--wide {
+		width: 100%;
+		padding: 32px 24px;
+		align-items: center;
+		text-align: center;
+
+		.step-card__head {
+			align-items: center;
+		}
+
+		.step-card__title {
+			font-size: clamp(28px, 6vw, 49px);
+		}
+
+		.step-card__body {
+			width: 100%;
+		}
+	}
+
+	.step-card--compact {
+		width: 100%;
+		min-width: 0;
+		padding: 32px 24px;
+
+		.step-card__title {
+			font-size: 25px;
+		}
+	}
+}

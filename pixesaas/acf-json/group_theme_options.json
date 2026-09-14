@@ -1,0 +1,223 @@
+{
+    "key": "group_theme_options",
+    "title": "Theme Options",
+    "fields": [
+        {
+            "key": "field_theme_options_navbar_tab",
+            "label": "Navbar",
+            "name": "navbar_tab",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_nav_logo_icon",
+            "label": "Logo Mark",
+            "name": "nav_logo_icon",
+            "type": "image",
+            "return_format": "id",
+            "instructions": "Circular logo mark. Defaults to the bundled Figma export if empty.",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_nav_logo_text",
+            "label": "Logo Wordmark",
+            "name": "nav_logo_text",
+            "type": "text",
+            "default_value": "PixeSaaS"
+        },
+        {
+            "key": "field_nav_login_text",
+            "label": "Login Link Text",
+            "name": "nav_login_text",
+            "type": "text",
+            "default_value": "Login"
+        },
+        {
+            "key": "field_nav_login_link",
+            "label": "Login Link URL",
+            "name": "nav_login_link",
+            "type": "text",
+            "instructions": "Leave blank to use the WordPress login URL."
+        },
+        {
+            "key": "field_nav_cta_text",
+            "label": "CTA Button Text",
+            "name": "nav_cta_text",
+            "type": "text",
+            "default_value": "Get started"
+        },
+        {
+            "key": "field_nav_cta_link",
+            "label": "CTA Button Link",
+            "name": "nav_cta_link",
+            "type": "text",
+            "default_value": "#"
+        },
+        {
+            "key": "field_theme_options_footer_tab",
+            "label": "Footer",
+            "name": "footer_tab",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_footer_cta_heading",
+            "label": "CTA Heading",
+            "name": "footer_cta_heading",
+            "type": "text",
+            "default_value": "Let's collect your card now."
+        },
+        {
+            "key": "field_footer_cta_button_text",
+            "label": "CTA Button Text",
+            "name": "footer_cta_button_text",
+            "type": "text",
+            "default_value": "Apply now"
+        },
+        {
+            "key": "field_footer_cta_button_link",
+            "label": "CTA Button Link",
+            "name": "footer_cta_button_link",
+            "type": "text",
+            "default_value": "#"
+        },
+        {
+            "key": "field_footer_columns",
+            "label": "Footer Link Columns",
+            "name": "footer_columns",
+            "type": "repeater",
+            "button_label": "Add Column",
+            "sub_fields": [
+                {
+                    "key": "field_footer_column_title",
+                    "label": "Column Title",
+                    "name": "column_title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_footer_links",
+                    "label": "Links",
+                    "name": "links",
+                    "type": "repeater",
+                    "button_label": "Add Link",
+                    "sub_fields": [
+                        {
+                            "key": "field_footer_link_text",
+                            "label": "Link Text",
+                            "name": "link_text",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_footer_link_url",
+                            "label": "Link URL",
+                            "name": "link_url",
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_footer_contact_title",
+            "label": "Contact Column Title",
+            "name": "footer_contact_title",
+            "type": "text",
+            "default_value": "Contact Us"
+        },
+        {
+            "key": "field_footer_contact_email",
+            "label": "Contact Email",
+            "name": "footer_contact_email",
+            "type": "email",
+            "default_value": "hello@pixesaas.com"
+        },
+        {
+            "key": "field_footer_social_links",
+            "label": "Social Media Links",
+            "name": "footer_social_links",
+            "type": "repeater",
+            "button_label": "Add Social Link",
+            "sub_fields": [
+                {
+                    "key": "field_footer_social_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "image",
+                    "return_format": "id",
+                    "preview_size": "thumbnail"
+                },
+                {
+                    "key": "field_social_platform",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "select",
+                    "choices": {
+                        "facebook": "Facebook",
+                        "twitter": "Twitter",
+                        "linkedin": "LinkedIn",
+                        "instagram": "Instagram"
+                    }
+                },
+                {
+                    "key": "field_social_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_theme_options_copyright_tab",
+            "label": "Copyright",
+            "name": "copyright_tab",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_copyright_text",
+            "label": "Copyright Text",
+            "name": "copyright_text",
+            "type": "text",
+            "default_value": "Copyright \u00a9 2025 PixeSaaS, All rights reserved."
+        },
+        {
+            "key": "field_legal_links",
+            "label": "Legal Links",
+            "name": "legal_links",
+            "type": "repeater",
+            "button_label": "Add Link",
+            "sub_fields": [
+                {
+                    "key": "field_legal_link_text",
+                    "label": "Link Text",
+                    "name": "link_text",
+                    "type": "text"
+                },
+                {
+                    "key": "field_legal_link_url",
+                    "label": "Link URL",
+                    "name": "link_url",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "pixesaas-theme-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1789379981
+}

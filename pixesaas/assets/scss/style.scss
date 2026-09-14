@@ -1,0 +1,26 @@
+/*!
+Theme Name: PixeSaaS
+Theme URI: https://example.com/pixesaas
+Author: PixeSaaS Team
+Description: A bespoke ACF-flexible-content SaaS/fintech landing page theme.
+Version: 1.0.0
+Text Domain: pixesaas
+*/
+
+@use 'base' as *;
+@use 'components/post-card';
+@use 'layouts/navbar';
+@use 'layouts/hero';
+@use 'layouts/hero-visual';
+@use 'layouts/feature-split';
+@use 'layouts/features';
+@use 'layouts/stats';
+@use 'layouts/global-presence';
+@use 'layouts/steps';
+@use 'layouts/pricing';
+@use 'layouts/testimonials';
+@use 'layouts/logos';
+@use 'layouts/cta';
+@use 'layouts/projects';
+@use 'layouts/blog';
+@use 'layouts/footer';

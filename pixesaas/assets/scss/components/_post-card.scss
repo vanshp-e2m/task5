@@ -1,0 +1,165 @@
+@use '../base' as *;
+
+// Editorial card - Figma nodes 1:3881 to 1:3889 (Blog Section)
+//
+//   1:3881  card 352px wide, 1px #c4c4c4 border, radius 10
+//   1:3882  media 250px tall, padding 20px, top corners 10px, image object-cover
+//   1:3883  badge: black, padding 10px, radius 10, label 16px white
+//   1:3885  details: padding 40px 30px, gap 30px
+//   1:3886  title 25px Medium, width 292px
+//   1:3887  footer: space-between; date 16px Regular; arrow 15 x 12
+//
+// Shared by the Blog Section and Latest Projects, which use the same card in
+// the design; only the data source differs.
+
+$post-card-w: 352px;
+$post-card-media-h: 250px;
+
+.post-card {
+	width: $post-card-w;
+	box-sizing: border-box;
+	border: 1px solid $border-color;
+	border-radius: 10px;
+	background-color: $white;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.post-card__media {
+	position: relative;
+	width: 100%;
+	height: $post-card-media-h;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 10px 10px 0 0;
+	overflow: hidden;
+	display: flex;
+	align-items: flex-start;
+}
+
+.post-card__image {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 10px 10px 0 0;
+}
+
+.post-card__tag {
+	position: relative;
+	z-index: 1;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: $black;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: $white;
+	white-space: nowrap;
+}
+
+.post-card__details {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 40px 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 30px;
+}
+
+.post-card__title {
+	width: 292px;
+	max-width: 100%;
+	margin: 0;
+	font-size: 25px;
+	font-weight: 500;
+	line-height: normal;
+
+	a {
+		color: $black;
+		text-decoration: none;
+
+		&:hover,
+		&:focus-visible {
+			opacity: 0.7;
+		}
+	}
+}
+
+.post-card__meta {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.post-card__date {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: $black;
+	white-space: nowrap;
+}
+
+.post-card__arrow {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	transition: transform 0.2s ease;
+
+	img {
+		display: block;
+		width: 15px;
+		height: 12px;
+	}
+
+	&:hover,
+	&:focus-visible {
+		transform: translateX(3px);
+	}
+}
+
+// Row of cards, shared by both sections (node 1:3880).
+.post-card-row {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 32px;
+}
+
+@media (max-width: 1180px) {
+	.post-card-row {
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+
+	.post-card {
+		width: calc(50% - 12px);
+		min-width: 300px;
+	}
+}
+
+@media (max-width: $tablet) {
+	.post-card {
+		width: 100%;
+		min-width: 0;
+		max-width: $post-card-w;
+	}
+
+	.post-card__details {
+		padding: 28px 24px;
+		gap: 20px;
+	}
+
+	.post-card__title {
+		width: 100%;
+		font-size: 20px;
+	}
+}

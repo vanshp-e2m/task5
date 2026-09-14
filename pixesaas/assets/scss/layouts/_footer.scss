@@ -1,0 +1,278 @@
+@use '../base' as *;
+
+// Footer - Figma node 1:3911 (1440 x 400)
+//
+//   1:3911  bg white, 1px #c4c4c4 top border, gap 100px, items-start,
+//           justify-center, padding 72px 0 71px
+//   1:3912  CTA block: flex-col gap 45px; heading 61px Semi Bold at 432px;
+//           button 179px, padding 20px 0, radius 10
+//   1:3916  link column: flex-col gap 35px; title 25px Medium;
+//           list gap 20px; links 18px Regular
+//   1:3938  contact column: title, then email and a 15px-gap icon row (36px)
+//
+// Copyright bar - Figma node 1:3951 (1440 x 80)
+//
+//   bg black, gap 257px, justify-center, padding 29px 0; text 18px white,
+//   legal links spaced 50px apart
+//
+// The columns are centred rather than padded: 432 + 114 + 126 + 189 plus three
+// 100px gaps leaves 139.5px either side at the design width, which is what the
+// frame shows.
+
+.site-footer {
+	background-color: $white;
+	border-top: 1px solid $border-color;
+	overflow: hidden;
+}
+
+.footer {
+	max-width: $container-width + $gutter * 2;
+	margin: 0 auto;
+	padding: 72px clamp(24px, 4vw, 60px) 71px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 100px;
+}
+
+/* ---------- CTA block (1:3912) ---------- */
+
+.footer__cta {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 45px;
+}
+
+.footer__cta-heading {
+	width: 432px;
+	max-width: 100%;
+	margin: 0;
+	font-size: 61px;
+	font-weight: 600;
+	line-height: normal;
+	color: $black;
+
+	@media (max-width: 1100px) {
+		font-size: clamp(32px, 4.5vw, 61px);
+	}
+}
+
+.footer__cta-button {
+	box-sizing: border-box;
+	width: 179px;
+	padding: 20px 0;
+	border-radius: 10px;
+	background-color: $black;
+	color: $white;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: normal;
+	text-align: center;
+	text-decoration: none;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.85;
+	}
+}
+
+/* ---------- Link columns (1:3916 / 1:3927 / 1:3938) ---------- */
+
+.footer__column {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 35px;
+}
+
+.footer__column-title {
+	margin: 0;
+	font-size: 25px;
+	font-weight: 500;
+	line-height: normal;
+	color: $black;
+}
+
+.footer__links {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.footer__link a,
+.footer__email {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: normal;
+	color: $black;
+	text-decoration: none;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.6;
+	}
+}
+
+.footer__contact-body {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.footer__socials {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.footer__social a {
+	display: block;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.7;
+	}
+
+	img {
+		display: block;
+		width: 36px;
+		height: 36px;
+	}
+}
+
+/* ---------- Copyright bar (1:3951) ---------- */
+
+.site-colophon {
+	background-color: $black;
+}
+
+.colophon {
+	max-width: $container-width + $gutter * 2;
+	margin: 0 auto;
+	padding: 29px clamp(24px, 8.5vw, 123.5px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 257px;
+}
+
+.colophon__text {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: normal;
+	color: $white;
+}
+
+.colophon__links {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 50px;
+
+	a {
+		font-size: 18px;
+		font-weight: 400;
+		line-height: normal;
+		color: $white;
+		text-decoration: none;
+		transition: opacity 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			opacity: 0.7;
+		}
+	}
+}
+
+/* ---------- Responsive ---------- */
+//
+// The four columns need 861px of content plus 300px of gaps, so the gap closes
+// first, then the row wraps with the CTA block taking a full row of its own.
+
+@media (max-width: 1240px) {
+	.footer {
+		gap: 56px;
+		flex-wrap: wrap;
+	}
+
+	.footer__cta {
+		flex: 1 1 100%;
+	}
+}
+
+@media (max-width: 1100px) {
+	.colophon {
+		gap: 48px;
+		justify-content: space-between;
+	}
+}
+
+@media (max-width: $tablet) {
+	.footer {
+		padding-top: 48px;
+		padding-bottom: 48px;
+		gap: 40px;
+	}
+
+	.footer__cta {
+		gap: 28px;
+	}
+
+	.footer__cta-heading {
+		width: 100%;
+	}
+
+	.footer__column {
+		flex: 1 1 calc(50% - 20px);
+		gap: 20px;
+	}
+
+	.footer__column-title {
+		font-size: 20px;
+	}
+
+	.colophon {
+		flex-direction: column;
+		gap: 16px;
+		text-align: center;
+		padding-top: 24px;
+		padding-bottom: 24px;
+	}
+
+	.colophon__links {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 16px 24px;
+	}
+
+	.colophon__text,
+	.colophon__links a {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: $mobile) {
+	.footer__column {
+		flex: 1 1 100%;
+	}
+
+	.footer__cta-button {
+		width: 100%;
+	}
+}

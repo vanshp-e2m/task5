@@ -1,0 +1,640 @@
+@use '../base' as *;
+
+// Feature split - Figma nodes 1:113 (Container 04) and 1:215 (Container 05)
+//
+//   1:113  bg white, gap 58px, items-center, justify-center, padding 80px 0
+//   1:114  panel 517x490, bg #f9f9fb, radius 20, pt/px 42, gap 17
+//   1:115  message card, bg white, radius 17.554, padding 29.257, gap 20
+//   1:127  list card,    bg white, radius 18, pt 13 / px 15, gap 10
+//   1:137  list row 402x77, bg #f9f9fb, radius 17.554, px 17 / py 16
+//   1:183  right column 544 wide, gap 40
+//   1:184  heading 49px Medium, width 446
+//   1:186  icon box, gap 20; icon 50px; title 25px Medium; body 16px #666
+//   1:213  CTA black, padding 20px 40px, radius 10
+//
+// Every inner width in the design equals its parent's content box (433 inside
+// 517-84, 374.486 inside 433-58.5, 402 inside 432-30), so those are written as
+// percentages: exact at the design width and fluid below it.
+
+$fs-panel-w: 517px;
+$fs-panel-h: 490px;
+$fs-content-w: 544px;
+
+.section-feature-split {
+	background-color: $white;
+	padding: 80px 0;
+}
+
+.feature-split {
+	max-width: $container-width + $gutter * 2;
+	margin: 0 auto;
+	padding: 0 clamp(24px, 11.11vw, #{$gutter});
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 58px;
+}
+
+.section-feature-split--reverse .feature-split {
+	flex-direction: row-reverse;
+}
+
+.feature-split__visual {
+	flex-shrink: 0;
+}
+
+/* ---------- Right column (1:183) ---------- */
+
+.feature-split__content {
+	width: $fs-content-w;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 40px;
+}
+
+.feature-split__heading {
+	width: 100%;
+	margin: 0;
+	font-size: 49px;
+	font-weight: 500;
+	line-height: normal;
+	color: $black;
+}
+
+// Container 04 wraps its heading earlier than the column width.
+.section-feature-split--transaction_list .feature-split__heading {
+	width: 446px;
+	max-width: 100%;
+}
+
+.feature-split__body {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.6;
+	color: $grey;
+}
+
+.icon-boxes {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 30px;
+}
+
+.icon-box {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.icon-box__icon {
+	flex-shrink: 0;
+	width: 50px;
+	height: 50px;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.icon-box__text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.icon-box__title {
+	margin: 0;
+	font-size: 25px;
+	font-weight: 500;
+	line-height: normal;
+	color: $black;
+}
+
+.icon-box__body {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: $grey;
+}
+
+.feature-split__cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 40px;
+	border-radius: 10px;
+	background-color: $black;
+	color: $white;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: normal;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.85;
+	}
+}
+
+/* ---------- Banking panel (1:114) ---------- */
+
+.app-panel {
+	width: $fs-panel-w;
+	height: $fs-panel-h;
+	max-width: 100%;
+	padding: 42px 42px 0;
+	border-radius: 20px;
+	background-color: $grey-bg;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 17px;
+}
+
+.app-card {
+	width: 100%;
+	background-color: $white;
+}
+
+/* Message card (1:115) */
+
+.app-message {
+	padding: 29.257px;
+	border-radius: 17.554px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.app-message__head {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.app-message__who {
+	display: flex;
+	align-items: center;
+	gap: 17.554px;
+}
+
+.app-message__avatar {
+	flex-shrink: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.app-message__id {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5.851px;
+	line-height: 1.2;
+}
+
+.app-message__name {
+	margin: 0;
+	font-size: 14.628px;
+	font-weight: 400;
+	line-height: 1.2;
+	color: $black;
+}
+
+.app-message__status {
+	margin: 0;
+	font-size: 10px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $grey;
+}
+
+.app-message__time {
+	margin: 0;
+	font-size: 11.703px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $grey;
+	white-space: nowrap;
+}
+
+.app-message__body {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.app-message__text {
+	width: 295px;
+	max-width: 100%;
+	margin: 0;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $black;
+}
+
+.app-message__badge {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	border-radius: 18px;
+	background-color: #c9f269;
+	font-size: 14.628px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $black;
+}
+
+/* Transaction list card (1:127) */
+
+.app-list {
+	padding: 13px 15px 0;
+	border-radius: 18px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.app-list__head {
+	// 370px inside a 402px content box: the design centres a narrower header.
+	width: calc(100% - 32px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.app-list__tabs {
+	display: flex;
+	align-items: flex-end;
+	gap: 14px;
+}
+
+.app-list__tab {
+	font-size: 11.703px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $grey;
+
+	&.is-active {
+		color: $black;
+	}
+}
+
+.app-list__sort {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 11.703px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $grey;
+
+	img {
+		display: block;
+		width: 10px;
+		height: 10px;
+	}
+}
+
+.app-list__rows {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.app-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 17px;
+	border-radius: 17.554px;
+	background-color: $grey-bg;
+}
+
+.app-row__main {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	min-width: 0;
+}
+
+.app-row__tile {
+	flex-shrink: 0;
+	display: block;
+	width: 45px;
+	height: 45px;
+	border-radius: 10px;
+	overflow: hidden;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		// Inset comes from the field: the design sets 4px on one glyph and
+		// 10px on another inside the same 45px tile.
+		box-sizing: border-box;
+	}
+}
+
+.app-row__text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+	min-width: 0;
+}
+
+.app-row__title {
+	margin: 0;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1.2;
+	color: $black;
+}
+
+.app-row__category {
+	margin: 0;
+	font-size: 10px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $grey;
+}
+
+.app-row__meta {
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 5px;
+}
+
+.app-row__amount {
+	margin: 0;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1.2;
+	// The design uses this red on every row, credits included.
+	color: $red-accent;
+	white-space: nowrap;
+}
+
+.app-row__date {
+	margin: 0;
+	font-size: 10px;
+	font-weight: 300;
+	line-height: 1.2;
+	color: $black;
+	white-space: nowrap;
+}
+
+/* ---------- Counter-overlay variant (1:215 / Container 05) ---------- */
+//
+//   1:215  gap 96px (not 58) between the columns
+//   1:216  left column 544 wide, gap 35px; heading fills the column
+//   1:221  right container 480x490 = 410x430 image inside padding 30px 35px
+//   1:223  yellow card 410 wide, absolute at left:-64px / bottom:50px,
+//          bg #fbd550, radius 20, padding 20px 30px, space-between
+//   1:225  values 61px Semi Bold; 1:228 labels 16px Regular #666
+//   1:229  1px x 60.5px hairline between the two counters
+
+.section-feature-split--counter_overlay {
+	.feature-split {
+		gap: 96px;
+	}
+
+	// This heading fills its 544px column, unlike Container 04's 446px one.
+	.feature-split__heading {
+		width: 100%;
+	}
+
+	.feature-split__content {
+		gap: 35px;
+	}
+}
+
+.feature-split__mockup {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 30px 35px;
+	background-color: $white;
+}
+
+.feature-split__mockup-img {
+	display: block;
+	width: 410px;
+	max-width: 100%;
+	height: 430px;
+	object-fit: cover;
+}
+
+.stat-counters {
+	position: absolute;
+	left: -64px;
+	bottom: 50px;
+	width: 410px;
+	max-width: calc(100% + 64px);
+	box-sizing: border-box;
+	padding: 20px 30px;
+	border-radius: 20px;
+	background-color: #fbd550;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.stat-counters__rule {
+	flex-shrink: 0;
+	width: 1px;
+	height: 60.5px;
+	background-color: $black;
+}
+
+.stat-counter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 9px;
+	text-align: center;
+}
+
+.stat-counter__value {
+	width: 100%;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 61px;
+	font-weight: 600;
+	line-height: normal;
+	color: $black;
+}
+
+.stat-counter__label {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: $grey;
+	white-space: nowrap;
+}
+
+/* ---------- Responsive ---------- */
+//
+// The two columns need 1119px plus gutters, so they stack below that. The panel
+// keeps its proportions down to its own width and then goes fluid; the inner
+// cards are already percentage-based so they follow without further rules.
+
+@media (max-width: 1180px) {
+	.feature-split,
+	.section-feature-split--reverse .feature-split,
+	.section-feature-split--counter_overlay .feature-split {
+		flex-direction: column;
+		gap: 48px;
+	}
+
+	.feature-split__content {
+		width: 100%;
+		max-width: $fs-content-w;
+	}
+
+	.feature-split__visual {
+		width: 100%;
+		max-width: $fs-panel-w;
+	}
+
+	.app-panel {
+		width: 100%;
+	}
+
+	// The overhang is measured against the design's 480px right container, so
+	// once that container is fluid the card is pulled back inside it.
+	.feature-split__mockup {
+		padding: 0;
+		justify-content: center;
+	}
+
+	.stat-counters {
+		left: 50%;
+		transform: translateX(-50%);
+		max-width: calc(100% - 32px);
+	}
+}
+
+@media (max-width: $tablet) {
+	.section-feature-split {
+		padding: 48px 0;
+	}
+
+	.feature-split__heading {
+		width: 100%;
+		font-size: clamp(32px, 6.4vw, 49px);
+	}
+
+	.app-panel {
+		height: auto;
+		padding: 24px 24px 24px;
+	}
+
+	.app-message {
+		padding: 20px;
+	}
+
+	.app-message__text {
+		width: auto;
+	}
+
+	.app-list {
+		padding: 12px 12px 12px;
+	}
+
+	.app-list__head {
+		width: 100%;
+	}
+
+	.app-row {
+		padding: 12px;
+	}
+
+	.icon-box__title {
+		font-size: 20px;
+	}
+
+	.feature-split__mockup-img {
+		width: 100%;
+		height: auto;
+	}
+
+	// Overlapping the image stops working once the image is only a little
+	// taller than the card, so the card drops below it and goes static.
+	.stat-counters {
+		position: static;
+		left: auto;
+		bottom: auto;
+		transform: none;
+		width: 100%;
+		max-width: 100%;
+		margin-top: 20px;
+	}
+
+	.feature-split__mockup {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.stat-counter__value {
+		font-size: 44px;
+	}
+}
+
+@media (max-width: $mobile) {
+	.feature-split__cta {
+		width: 100%;
+	}
+
+	.stat-counters {
+		padding: 18px 20px;
+	}
+
+	.stat-counter__value {
+		font-size: 36px;
+	}
+
+	.stat-counter__label {
+		font-size: 14px;
+		white-space: normal;
+	}
+}

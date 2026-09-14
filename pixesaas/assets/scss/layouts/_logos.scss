@@ -1,0 +1,122 @@
+@use '../base' as *;
+
+// Logo wall - Figma node 1:3841 (Container 10, 1440 x 666)
+//
+//   1:3841  bg white, flex-col, gap 10px, items-center, padding 80px 160px
+//   1:3842  heading 61px Semi Bold, centred, width 770px
+//   1:3843  gallery: flex-wrap, gap 30px, justify+align-content centre,
+//           height 348px, width 100%
+//   1:3844  each tile 256.5 x 138.5, object-cover
+//
+// Four tiles plus three gaps come to 1116px inside the 1120px column, which is
+// why the row reads as edge-to-edge. The section gap is only 10px because the
+// gallery's fixed height leaves 20.5px of slack above and below the rows.
+
+$logo-tile-w: 256.5px;
+$logo-tile-h: 138.5px;
+$logo-gap: 30px;
+
+// Unitless, for the aspect-ratio below: interpolated so Sass emits the slash
+// literally instead of treating it as division.
+$logo-tile-ratio-w: 256.5;
+$logo-tile-ratio-h: 138.5;
+
+.section-logos {
+	background-color: $white;
+	overflow: hidden;
+}
+
+.logos {
+	max-width: $container-width + $gutter * 2;
+	margin: 0 auto;
+	padding: 80px clamp(24px, 11.11vw, #{$gutter});
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.logos__heading {
+	width: 770px;
+	max-width: 100%;
+	margin: 0;
+	font-size: 61px;
+	font-weight: 600;
+	line-height: normal;
+	text-align: center;
+	color: $black;
+
+	@media (max-width: 1100px) {
+		font-size: clamp(32px, 5.5vw, 61px);
+	}
+}
+
+.logos__grid {
+	width: 100%;
+	height: 348px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	gap: $logo-gap;
+}
+
+.logos__item {
+	flex: 0 0 auto;
+	width: $logo-tile-w;
+	height: $logo-tile-h;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+/* ---------- Responsive ---------- */
+//
+// The tiles keep their 256.5:138.5 ratio and simply re-wrap: four across at
+// the design width, then three, two and one as space runs out. The fixed
+// gallery height is dropped so the extra rows are not clipped.
+
+@media (max-width: 1180px) {
+	.logos__grid {
+		height: auto;
+		gap: 24px;
+	}
+
+	.logos__item {
+		width: clamp(180px, 22vw, #{$logo-tile-w});
+		height: auto;
+		aspect-ratio: #{$logo-tile-ratio-w} / #{$logo-tile-ratio-h};
+	}
+}
+
+@media (max-width: $tablet) {
+	.logos {
+		padding-top: 48px;
+		padding-bottom: 48px;
+		gap: 32px;
+	}
+
+	.logos__grid {
+		gap: 16px;
+	}
+
+	.logos__item {
+		width: calc(50% - 8px);
+		max-width: $logo-tile-w;
+	}
+}
+
+@media (max-width: $mobile) {
+	.logos__item {
+		width: 100%;
+	}
+}

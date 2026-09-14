@@ -1,0 +1,275 @@
+@use '../base' as *;
+
+// Navbar - Figma node 1:22 (1440 x 144)
+//
+// Geometry is taken from the design, not approximated:
+//   frame      1440 x 144, padding 40px 160px, space-between, items-center
+//   logo  1:23 150.93 x 41.24, gap 5.688px, mark 41.24px circle, text 24px Light
+//   menu  1:30 374 x 39, four items at padding 10px 20px, no gap between them
+//   btns  1:39 265 x 64, gap 35px, CTA 188px wide, padding 20px 0, radius 10px
+// The three children sit 165.03px apart, which is what space-between across the
+// 1120px content column produces - so the gaps are not hard-coded.
+
+$navbar-mark-size: 41.24px;
+$navbar-logo-gap: 5.688px;
+$navbar-collapse-at: 1024px;
+
+.site-header {
+	background-color: $white;
+	position: relative;
+	z-index: 100;
+}
+
+.navbar {
+	max-width: $container-width + $gutter * 2;
+	margin: 0 auto;
+	// 160/1440 = 11.11vw, so this resolves to exactly 160px at the design width
+	// and tapers on narrower viewports instead of crushing the content column.
+	padding: 40px clamp(24px, 11.11vw, #{$gutter});
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* ---------- Logo (1:23) ---------- */
+
+.navbar__logo {
+	display: flex;
+	align-items: center;
+	gap: $navbar-logo-gap;
+	flex-shrink: 0;
+	text-decoration: none;
+
+	// The design gives the logo no hover treatment.
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.navbar__logo-mark {
+	position: relative;
+	flex-shrink: 0;
+	width: $navbar-mark-size;
+	height: $navbar-mark-size;
+	background-color: $black;
+	border-radius: 50%;
+
+	img {
+		position: absolute;
+		inset: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.navbar__logo-text {
+	font-size: 24px;
+	font-weight: 300;
+	line-height: normal;
+	color: $black;
+	white-space: nowrap;
+}
+
+/* ---------- Nav menu (1:30) ---------- */
+
+.navbar__collapse {
+	// At desktop the wrapper dissolves so the menu and the action group become
+	// direct flex children of .navbar - that is what makes space-between
+	// reproduce the design's three equal 165px gaps.
+	display: contents;
+}
+
+.navbar__menu-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		margin: 0;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 20px;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: normal;
+		color: $black;
+		white-space: nowrap;
+		text-decoration: none;
+		transition: opacity 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			opacity: 0.6;
+		}
+	}
+
+	// Deliberately no current-item styling: the design shows all four links at
+	// the same weight, and because these are hash links onto the front page
+	// WordPress marks every one of them current anyway.
+}
+
+/* ---------- Login + CTA (1:39) ---------- */
+
+.navbar__actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 35px;
+	flex-shrink: 0;
+}
+
+.navbar__login {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+	color: $black;
+	white-space: nowrap;
+	text-decoration: none;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.6;
+	}
+}
+
+.navbar__cta {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 188px;
+	padding: 20px 0;
+	border-radius: 10px;
+	background-color: $black;
+	color: $white;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: normal;
+	text-align: center;
+	text-decoration: none;
+	overflow: hidden;
+	transition: opacity 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.85;
+	}
+}
+
+/* ---------- Hamburger ---------- */
+
+.navbar__toggle {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+.navbar__toggle-bar {
+	display: block;
+	width: 24px;
+	height: 2px;
+	margin: 0 auto;
+	background-color: $black;
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ---------- Below the desktop layout ---------- */
+//
+// The Figma file is desktop-only, so this behaviour is designed rather than
+// derived: the row cannot hold 790px of content plus gutters much under
+// 1024px, so the menu and actions move into a drop panel.
+
+@media (max-width: $navbar-collapse-at) {
+	.navbar {
+		padding-top: 24px;
+		padding-bottom: 24px;
+		flex-wrap: wrap;
+	}
+
+	.navbar__toggle {
+		display: flex;
+	}
+
+	.navbar__collapse {
+		display: none;
+		width: 100%;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 8px;
+		padding-top: 24px;
+	}
+
+	.navbar__collapse.is-open {
+		display: flex;
+	}
+
+	.navbar__menu-list {
+		flex-direction: column;
+		align-items: stretch;
+
+		a {
+			justify-content: flex-start;
+			padding: 14px 0;
+			font-size: 18px;
+			border-bottom: 1px solid $border-color;
+		}
+	}
+
+	.navbar__actions {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 16px;
+		padding-top: 16px;
+	}
+
+	.navbar__login {
+		padding: 8px 0;
+	}
+
+	.navbar__cta {
+		width: 100%;
+		padding: 16px 0;
+		font-size: 18px;
+	}
+
+	// Hamburger morphs into a close icon.
+	.navbar__toggle[aria-expanded='true'] {
+		.navbar__toggle-bar:nth-child(1) {
+			transform: translateY(7px) rotate(45deg);
+		}
+
+		.navbar__toggle-bar:nth-child(2) {
+			opacity: 0;
+		}
+
+		.navbar__toggle-bar:nth-child(3) {
+			transform: translateY(-7px) rotate(-45deg);
+		}
+	}
+}
+
+@media (max-width: $mobile) {
+	.navbar__logo-text {
+		font-size: 20px;
+	}
+
+	.navbar__logo-mark {
+		width: 34px;
+		height: 34px;
+	}
+}

@@ -1,0 +1,195 @@
+@use '../base' as *;
+
+// Testimonials - Figma node 1:3820 (Container 09, 1440 x 734)
+//
+//   1:3820  bg white, flex-col, gap 90px, items-center, padding 40px 160px
+//   1:3821  heading 61px Semi Bold, centred, width 726px
+//   1:3822  row: gap 90px, items-center, justify-center, width 100%
+//   1:3823  each column 510px wide, items-center
+//   1:3824  badge 70px with margin-bottom -42px, sits over the card edge
+//   1:3825  card: bg #f9f9fb, radius 20, padding 70px 30px, gap 50px
+//   1:3826  quote 25px Medium, centred (450px inside the 30px padding)
+//   1:3827  author row: gap 24px; avatar 78px; name 25px Medium; role 16px
+
+$testimonial-w: 510px;
+$testimonial-badge: 70px;
+$testimonial-badge-overlap: 42px;
+
+.section-testimonials {
+	background-color: $white;
+	overflow: hidden;
+}
+
+.testimonials {
+	max-width: $container-width + $gutter * 2;
+	margin: 0 auto;
+	padding: 40px clamp(24px, 11.11vw, #{$gutter});
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 90px;
+}
+
+.testimonials__heading {
+	width: 726px;
+	max-width: 100%;
+	margin: 0;
+	font-size: 61px;
+	font-weight: 600;
+	line-height: normal;
+	text-align: center;
+	color: $black;
+
+	@media (max-width: 1100px) {
+		font-size: clamp(32px, 5.5vw, 61px);
+	}
+}
+
+.testimonials__row {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 90px;
+}
+
+.testimonial {
+	width: $testimonial-w;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.testimonial__badge {
+	position: relative;
+	z-index: 2;
+	display: block;
+	flex-shrink: 0;
+	width: $testimonial-badge;
+	height: $testimonial-badge;
+	// Straddles the card's top edge rather than sitting above it.
+	margin-bottom: -$testimonial-badge-overlap;
+}
+
+.testimonial__card {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 70px 30px;
+	border-radius: 20px;
+	background-color: $grey-bg;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 50px;
+}
+
+.testimonial__quote {
+	width: 100%;
+	margin: 0;
+	font-size: 25px;
+	font-weight: 500;
+	line-height: normal;
+	text-align: center;
+	color: $black;
+}
+
+.testimonial__author {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.testimonial__avatar {
+	flex-shrink: 0;
+	display: block;
+	width: 78px;
+	height: 78px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.testimonial__id {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	color: $black;
+}
+
+.testimonial__name {
+	margin: 0;
+	font-size: 25px;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.testimonial__role {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* ---------- Responsive ---------- */
+//
+// Two 510px columns plus a 90px gap need 1110px, so below that the gap closes
+// first and the columns then stack.
+
+@media (max-width: 1180px) {
+	.testimonials__row {
+		gap: 40px;
+	}
+
+	.testimonial {
+		width: calc(50% - 20px);
+		min-width: 320px;
+	}
+}
+
+@media (max-width: 860px) {
+	.testimonials__row {
+		flex-direction: column;
+		gap: 60px;
+	}
+
+	.testimonial {
+		width: 100%;
+		max-width: $testimonial-w;
+		min-width: 0;
+	}
+}
+
+@media (max-width: $tablet) {
+	.testimonials {
+		padding-top: 32px;
+		padding-bottom: 32px;
+		gap: 48px;
+	}
+
+	.testimonial__card {
+		padding: 56px 24px 40px;
+		gap: 32px;
+	}
+
+	.testimonial__quote {
+		font-size: 20px;
+	}
+
+	.testimonial__name {
+		font-size: 20px;
+	}
+
+	.testimonial__author {
+		gap: 16px;
+	}
+
+	.testimonial__avatar {
+		width: 64px;
+		height: 64px;
+	}
+}

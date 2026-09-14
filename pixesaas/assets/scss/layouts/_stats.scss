@@ -1,0 +1,96 @@
+@use '../base' as *;
+
+// Stats Section
+.section-stats {
+	background-color: $white;
+	padding: $section-padding 0;
+
+	.container {
+		text-align: center;
+
+		@media (max-width: $tablet) {
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+	}
+}
+
+.stats-header {
+	margin-bottom: 80px;
+
+	h2 {
+		margin-bottom: 30px;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+
+		@media (max-width: $tablet) {
+			font-size: 42px;
+		}
+	}
+
+	p {
+		font-size: 18px;
+		color: $grey;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+}
+
+.stats-content {
+	display: grid;
+	gap: 60px;
+
+	@media (max-width: $tablet) {
+		gap: 40px;
+	}
+}
+
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 40px;
+
+	@media (max-width: $tablet) {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 30px;
+	}
+
+	@media (max-width: $mobile) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.stat-item {
+	text-align: center;
+
+	.stat-number {
+		font-size: 49px;
+		font-weight: 500;
+		margin-bottom: 10px;
+	}
+
+	.stat-label {
+		font-size: 16px;
+		color: $grey;
+	}
+}
+
+.stats-images {
+	display: flex;
+	gap: 40px;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	@media (max-width: $tablet) {
+		gap: 20px;
+	}
+}
+
+.stats-image {
+	max-width: 200px;
+
+	img {
+		width: 100%;
+	}
+}

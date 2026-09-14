@@ -1,0 +1,1324 @@
+{
+    "key": "group_page_sections",
+    "title": "Page Sections",
+    "fields": [
+        {
+            "key": "field_page_sections",
+            "label": "Page Sections",
+            "name": "page_sections",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": [
+                {
+                    "key": "layout_hero",
+                    "name": "hero",
+                    "label": "Hero",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_hero",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_hero_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text",
+                            "required": 1
+                        },
+                        {
+                            "key": "field_hero_subheading",
+                            "label": "Subheading",
+                            "name": "subheading",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_hero_cta_buttons",
+                            "label": "CTA Buttons",
+                            "name": "cta_buttons",
+                            "type": "repeater",
+                            "button_label": "Add Button",
+                            "sub_fields": [
+                                {
+                                    "key": "field_hero_button_text",
+                                    "label": "Button Text",
+                                    "name": "button_text",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_hero_button_link",
+                                    "label": "Button Link",
+                                    "name": "button_link",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_hero_button_style",
+                                    "label": "Button Style",
+                                    "name": "button_style",
+                                    "type": "select",
+                                    "choices": {
+                                        "primary": "Primary (Filled)",
+                                        "secondary": "Secondary (Outline)"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_hero_bg_image",
+                            "label": "Background/Dashboard Illustration",
+                            "name": "bg_image",
+                            "type": "image",
+                            "return_format": "id"
+                        },
+                        {
+                            "key": "field_hero_caption_lead",
+                            "label": "Visual Caption - Lead (light weight)",
+                            "name": "visual_caption_lead",
+                            "type": "text",
+                            "instructions": "First half of the caption beside the cards, rendered in Inter Light."
+                        },
+                        {
+                            "key": "field_hero_caption_strong",
+                            "label": "Visual Caption - Emphasis (regular weight)",
+                            "name": "visual_caption_strong",
+                            "type": "text",
+                            "instructions": "Second half, rendered in Inter Regular."
+                        },
+                        {
+                            "key": "field_hero_avatars",
+                            "label": "Avatar Photos (3 max)",
+                            "name": "avatars",
+                            "type": "repeater",
+                            "button_label": "Add Avatar",
+                            "max": 3,
+                            "sub_fields": [
+                                {
+                                    "key": "field_hero_avatar_image",
+                                    "label": "Avatar Image",
+                                    "name": "avatar_image",
+                                    "type": "image",
+                                    "return_format": "id"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_hero_trust_counter_value",
+                            "label": "Trust Counter Value (e.g. 525k+)",
+                            "name": "trust_counter_value",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_hero_trust_counter_label",
+                            "label": "Trust Counter Label (e.g. People trust us)",
+                            "name": "trust_counter_label",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_hero_trusted_by_label",
+                            "label": "Trusted By Label",
+                            "name": "trusted_by_label",
+                            "type": "text",
+                            "default_value": "Trusted by leading companies"
+                        },
+                        {
+                            "key": "field_hero_trusted_logos",
+                            "label": "Trusted By Logos (4 max)",
+                            "name": "trusted_logos",
+                            "type": "repeater",
+                            "button_label": "Add Logo",
+                            "max": 4,
+                            "sub_fields": [
+                                {
+                                    "key": "field_hero_logo_image",
+                                    "label": "Logo Image",
+                                    "name": "logo_image",
+                                    "type": "image",
+                                    "return_format": "id"
+                                },
+                                {
+                                    "key": "field_hero_logo_name",
+                                    "label": "Brand Name (alt text)",
+                                    "name": "logo_name",
+                                    "type": "text",
+                                    "instructions": "Used as the image alt text. Leave blank to treat the mark as decorative."
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_hero_pay_widget_amount",
+                            "label": "Pay Widget Amount (e.g. $60.47K)",
+                            "name": "pay_widget_amount",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_hero_pay_widget_period",
+                            "label": "Pay Widget Period (e.g. /week)",
+                            "name": "pay_widget_period",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_hero_pay_widget_blurb",
+                            "label": "Pay Widget Description",
+                            "name": "pay_widget_blurb",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_hero_pay_widget_button_text",
+                            "label": "Pay Widget Button Text",
+                            "name": "pay_widget_button_text",
+                            "type": "text",
+                            "default_value": "Pay"
+                        },
+                        {
+                            "key": "field_hero_pay_logo",
+                            "label": "Pay Widget Logo Mark",
+                            "name": "pay_widget_logo",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_hero_pay_brand",
+                            "label": "Pay Widget Brand Label",
+                            "name": "pay_widget_brand",
+                            "type": "text",
+                            "default_value": "PixeSaaS"
+                        },
+                        {
+                            "key": "field_hero_pay_note",
+                            "label": "Pay Widget Note",
+                            "name": "pay_widget_note",
+                            "type": "textarea",
+                            "rows": 2
+                        },
+                        {
+                            "key": "field_hero_pay_sec_amount",
+                            "label": "Pay Widget Secondary Amount",
+                            "name": "pay_widget_secondary_amount",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_hero_pay_sec_period",
+                            "label": "Pay Widget Secondary Period",
+                            "name": "pay_widget_secondary_period",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_feature_split",
+                    "name": "feature_split",
+                    "label": "Feature Split (Two-Column)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_feature_split",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_fs_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_fs_body",
+                            "label": "Body Text",
+                            "name": "body",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_fs_feature_items",
+                            "label": "Feature Items (icon boxes)",
+                            "name": "feature_items",
+                            "type": "repeater",
+                            "button_label": "Add Feature",
+                            "sub_fields": [
+                                {
+                                    "key": "field_fs_fi_icon",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "type": "image",
+                                    "return_format": "id",
+                                    "preview_size": "thumbnail"
+                                },
+                                {
+                                    "key": "field_fs_fi_title",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_fs_fi_body",
+                                    "label": "Body",
+                                    "name": "body",
+                                    "type": "textarea",
+                                    "rows": 3
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_fs_cta_text",
+                            "label": "CTA Button Text",
+                            "name": "cta_text",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_fs_cta_link",
+                            "label": "CTA Button Link",
+                            "name": "cta_link",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_fs_reverse",
+                            "label": "Reverse Layout (text right, image left)",
+                            "name": "reverse",
+                            "type": "true_false"
+                        },
+                        {
+                            "key": "field_fs_mockup_type",
+                            "label": "Mockup Type",
+                            "name": "mockup_type",
+                            "type": "select",
+                            "choices": {
+                                "transaction_list": "Transaction List",
+                                "counter_overlay": "Counter Overlay",
+                                "none": "None"
+                            },
+                            "default_value": "transaction_list"
+                        },
+                        {
+                            "key": "field_fs_mockup_image",
+                            "label": "Mockup Image",
+                            "name": "mockup_image",
+                            "type": "image",
+                            "return_format": "id"
+                        },
+                        {
+                            "key": "field_fs_profile_avatar",
+                            "label": "Profile Avatar",
+                            "name": "profile_avatar",
+                            "type": "image",
+                            "return_format": "id",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_fs_profile_name",
+                            "label": "Profile Name",
+                            "name": "profile_name",
+                            "type": "text",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_fs_profile_status",
+                            "label": "Profile Status (e.g. Online)",
+                            "name": "profile_status",
+                            "type": "text",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_fs_profile_time",
+                            "label": "Timestamp",
+                            "name": "profile_time",
+                            "type": "text",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_fs_message_text",
+                            "label": "Message Text",
+                            "name": "message_text",
+                            "type": "textarea",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_fs_message_badge",
+                            "label": "Message Badge",
+                            "name": "message_badge",
+                            "type": "text",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_fs_tabs",
+                            "label": "List Tabs",
+                            "name": "tabs",
+                            "type": "repeater",
+                            "button_label": "Add Tab",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ],
+                            "sub_fields": [
+                                {
+                                    "key": "field_fs_tab_label",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_fs_sort_label",
+                            "label": "Sort Label",
+                            "name": "sort_label",
+                            "type": "text",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_fs_sort_icon",
+                            "label": "Sort Icon",
+                            "name": "sort_icon",
+                            "type": "image",
+                            "return_format": "id",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "key": "field_fs_transaction_items",
+                            "label": "Transactions",
+                            "name": "transaction_items",
+                            "type": "repeater",
+                            "button_label": "Add Transaction",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "transaction_list"
+                                    }
+                                ]
+                            ],
+                            "sub_fields": [
+                                {
+                                    "key": "field_fs_tx_icon",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "type": "image",
+                                    "return_format": "id"
+                                },
+                                {
+                                    "key": "field_fs_tx_icon_bg",
+                                    "label": "Icon Tile Colour",
+                                    "name": "icon_bg",
+                                    "type": "color_picker",
+                                    "instructions": "Leave blank if the icon already fills the tile."
+                                },
+                                {
+                                    "key": "field_fs_tx_icon_inset",
+                                    "label": "Icon Inset (px)",
+                                    "name": "icon_inset",
+                                    "type": "number",
+                                    "default_value": 4,
+                                    "min": 0,
+                                    "max": 20
+                                },
+                                {
+                                    "key": "field_fs_tx_title",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_fs_tx_category",
+                                    "label": "Category",
+                                    "name": "category",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_fs_tx_amount",
+                                    "label": "Amount",
+                                    "name": "amount",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_fs_tx_date",
+                                    "label": "Date",
+                                    "name": "date",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_fs_counter_items",
+                            "label": "Counters",
+                            "name": "counter_items",
+                            "type": "repeater",
+                            "button_label": "Add Counter",
+                            "max": 2,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_fs_mockup_type",
+                                        "operator": "==",
+                                        "value": "counter_overlay"
+                                    }
+                                ]
+                            ],
+                            "sub_fields": [
+                                {
+                                    "key": "field_fs_counter_value",
+                                    "label": "Value",
+                                    "name": "value",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_fs_counter_unit",
+                                    "label": "Unit (e.g. %)",
+                                    "name": "unit",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_fs_counter_label",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_global_presence",
+                    "name": "global_presence",
+                    "label": "Global Presence",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_global_presence",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_gp_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_gp_map_image",
+                            "label": "World Map Illustration",
+                            "name": "map_image",
+                            "type": "image",
+                            "return_format": "id"
+                        },
+                        {
+                            "key": "field_gp_counters",
+                            "label": "Counters (4 expected)",
+                            "name": "counters",
+                            "type": "repeater",
+                            "button_label": "Add Counter",
+                            "sub_fields": [
+                                {
+                                    "key": "field_gp_counter_value",
+                                    "label": "Value (e.g. 500+, 4.8/5)",
+                                    "name": "value",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_gp_counter_label",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_steps",
+                    "name": "steps",
+                    "label": "Steps / Process",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_steps",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_steps_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_steps_subtext",
+                            "label": "Subtext",
+                            "name": "subtext",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_steps_link_icon",
+                            "label": "Link Arrow Icon",
+                            "name": "link_icon",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "instructions": "Shared by every step link."
+                        },
+                        {
+                            "key": "field_steps_items",
+                            "label": "Steps (First is featured/large)",
+                            "name": "steps",
+                            "type": "repeater",
+                            "button_label": "Add Step",
+                            "sub_fields": [
+                                {
+                                    "key": "field_step_bg_color",
+                                    "label": "Background Color",
+                                    "name": "bg_color",
+                                    "type": "select",
+                                    "choices": {
+                                        "green": "Green (#f4fcda)",
+                                        "blue": "Blue (#e0f7fa)",
+                                        "pink": "Pink (#fef2f3)",
+                                        "yellow": "Yellow (#fef7ca)"
+                                    }
+                                },
+                                {
+                                    "key": "field_step_icon",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "type": "image",
+                                    "return_format": "id"
+                                },
+                                {
+                                    "key": "field_step_title",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_step_body",
+                                    "label": "Body Text",
+                                    "name": "body",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_step_link_text",
+                                    "label": "Link Text (e.g. Learn more)",
+                                    "name": "link_text",
+                                    "type": "text",
+                                    "default_value": "Learn more"
+                                },
+                                {
+                                    "key": "field_step_link_url",
+                                    "label": "Link URL",
+                                    "name": "link_url",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_step_photo",
+                                    "label": "Photo (Featured card only)",
+                                    "name": "photo",
+                                    "type": "image",
+                                    "return_format": "id"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_features",
+                    "name": "features",
+                    "label": "Features",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_features",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_features_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_features_items",
+                            "label": "Feature Items",
+                            "name": "items",
+                            "type": "repeater",
+                            "button_label": "Add Feature",
+                            "sub_fields": [
+                                {
+                                    "key": "field_features_title",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_features_description",
+                                    "label": "Description",
+                                    "name": "description",
+                                    "type": "textarea"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_features_image",
+                            "label": "Feature Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id"
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_stats",
+                    "name": "stats",
+                    "label": "Stats Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_stats",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_stats_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_stats_description",
+                            "label": "Description",
+                            "name": "description",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_stats_items",
+                            "label": "Stats",
+                            "name": "stats",
+                            "type": "repeater",
+                            "button_label": "Add Stat",
+                            "sub_fields": [
+                                {
+                                    "key": "field_stats_number",
+                                    "label": "Number",
+                                    "name": "number",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_stats_label",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_stats_images",
+                            "label": "Images",
+                            "name": "images",
+                            "type": "repeater",
+                            "button_label": "Add Image",
+                            "sub_fields": [
+                                {
+                                    "key": "field_stats_image",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "type": "image",
+                                    "return_format": "id"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_pricing",
+                    "name": "pricing",
+                    "label": "Pricing",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_pricing",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_pricing_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_pr_toggle_monthly",
+                            "label": "Toggle - Left Label",
+                            "name": "toggle_monthly_label",
+                            "type": "text",
+                            "default_value": "Monthly"
+                        },
+                        {
+                            "key": "field_pr_toggle_icon",
+                            "label": "Toggle Switch Icon",
+                            "name": "toggle_icon",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_pr_toggle_annual",
+                            "label": "Toggle - Right Label",
+                            "name": "toggle_annual_label",
+                            "type": "text",
+                            "default_value": "Annual"
+                        },
+                        {
+                            "key": "field_pr_save_arrow",
+                            "label": "Save Badge Arrow",
+                            "name": "save_arrow_icon",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail"
+                        },
+                        {
+                            "key": "field_pr_save_label",
+                            "label": "Save Badge Label",
+                            "name": "save_label",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_pr_tick_icon",
+                            "label": "Feature Tick Icon",
+                            "name": "tick_icon",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "instructions": "Shared by every feature row in every card."
+                        },
+                        {
+                            "key": "field_pricing_cards",
+                            "label": "Pricing Cards",
+                            "name": "cards",
+                            "type": "repeater",
+                            "button_label": "Add Card",
+                            "sub_fields": [
+                                {
+                                    "key": "field_pricing_card_image",
+                                    "label": "Card Image",
+                                    "name": "image",
+                                    "type": "image",
+                                    "return_format": "id"
+                                },
+                                {
+                                    "key": "field_pricing_card_title",
+                                    "label": "Plan Name",
+                                    "name": "title",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_pricing_card_price",
+                                    "label": "Price (e.g. $100)",
+                                    "name": "price",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_pricing_card_price_suffix",
+                                    "label": "Price Suffix (e.g. / per year)",
+                                    "name": "price_suffix",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_pricing_card_features",
+                                    "label": "Features",
+                                    "name": "feature_list",
+                                    "type": "repeater",
+                                    "button_label": "Add Feature",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_pricing_feature_text",
+                                            "label": "Feature",
+                                            "name": "feature_text",
+                                            "type": "text"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_pricing_card_description",
+                                    "label": "Description",
+                                    "name": "description",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_pricing_card_cta",
+                                    "label": "CTA Text",
+                                    "name": "cta",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_pr_card_cta_link",
+                                    "label": "CTA Link",
+                                    "name": "cta_link",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_testimonials",
+                    "name": "testimonials",
+                    "label": "Testimonials",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_testimonials",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_testimonials_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_ts_quote_icon",
+                            "label": "Quote Badge Icon",
+                            "name": "quote_icon",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "instructions": "Shared badge that overlaps the top of every card."
+                        },
+                        {
+                            "key": "field_testimonials_items",
+                            "label": "Testimonials",
+                            "name": "testimonials",
+                            "type": "repeater",
+                            "button_label": "Add Testimonial",
+                            "sub_fields": [
+                                {
+                                    "key": "field_testimonial_quote",
+                                    "label": "Quote",
+                                    "name": "quote",
+                                    "type": "textarea"
+                                },
+                                {
+                                    "key": "field_testimonial_avatar",
+                                    "label": "Avatar",
+                                    "name": "avatar",
+                                    "type": "image",
+                                    "return_format": "id"
+                                },
+                                {
+                                    "key": "field_testimonial_author_name",
+                                    "label": "Author Name",
+                                    "name": "author_name",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "field_testimonial_author_title",
+                                    "label": "Author Title",
+                                    "name": "author_title",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_logos",
+                    "name": "logos",
+                    "label": "Trusted By Logos",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_logos",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_logos_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text",
+                            "default_value": "Trusted by 2200+ digital brands."
+                        },
+                        {
+                            "key": "field_logos_items",
+                            "label": "Logos",
+                            "name": "logos",
+                            "type": "repeater",
+                            "button_label": "Add Logo",
+                            "sub_fields": [
+                                {
+                                    "key": "field_logo_image",
+                                    "label": "Logo Image",
+                                    "name": "logo_image",
+                                    "type": "image",
+                                    "return_format": "id"
+                                },
+                                {
+                                    "key": "field_lg_logo_name",
+                                    "label": "Brand Name (alt text)",
+                                    "name": "logo_name",
+                                    "type": "text",
+                                    "instructions": "Used as the image alt text. Leave blank to treat the tile as decorative."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_cta_promo",
+                    "name": "cta_promo",
+                    "label": "CTA / Promo",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_cta_promo",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_cta_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_cta_subtext",
+                            "label": "Subtext",
+                            "name": "subtext",
+                            "type": "textarea"
+                        },
+                        {
+                            "key": "field_cta_image",
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id"
+                        },
+                        {
+                            "key": "field_cta_email_placeholder",
+                            "label": "Email Input Placeholder",
+                            "name": "email_placeholder",
+                            "type": "text",
+                            "default_value": "Enter your email"
+                        },
+                        {
+                            "key": "field_cta_subscribe_button_text",
+                            "label": "Subscribe Button Text",
+                            "name": "subscribe_button_text",
+                            "type": "text",
+                            "default_value": "Subscribe"
+                        },
+                        {
+                            "key": "field_cta_subscribe_link",
+                            "label": "Subscribe Link",
+                            "name": "subscribe_link",
+                            "type": "text",
+                            "default_value": "#"
+                        },
+                        {
+                            "key": "field_cta_trust_bullets",
+                            "label": "Trust Bullets",
+                            "name": "trust_bullets",
+                            "type": "repeater",
+                            "button_label": "Add Bullet",
+                            "max": 2,
+                            "sub_fields": [
+                                {
+                                    "key": "field_trust_bullet_icon",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "type": "image",
+                                    "return_format": "id"
+                                },
+                                {
+                                    "key": "field_trust_bullet_text",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_cta_app_badges",
+                            "label": "App Badges",
+                            "name": "app_badges",
+                            "type": "repeater",
+                            "button_label": "Add Badge",
+                            "max": 2,
+                            "sub_fields": [
+                                {
+                                    "key": "field_app_badge_image",
+                                    "label": "Badge Image",
+                                    "name": "badge_image",
+                                    "type": "image",
+                                    "return_format": "id"
+                                },
+                                {
+                                    "key": "field_app_badge_link",
+                                    "label": "Badge Link",
+                                    "name": "badge_link",
+                                    "type": "text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_blog",
+                    "name": "blog",
+                    "label": "Blog Posts",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_blog",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_bl_h1",
+                            "label": "Heading - Line 1",
+                            "name": "heading_line1",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_bl_h2",
+                            "label": "Heading - Line 2",
+                            "name": "heading_line2",
+                            "type": "text"
+                        },
+                        {
+                            "key": "field_bl_number",
+                            "label": "Number of Posts",
+                            "name": "number",
+                            "type": "number",
+                            "default_value": 3,
+                            "min": 1,
+                            "max": 12
+                        },
+                        {
+                            "key": "field_bl_order",
+                            "label": "Card Order",
+                            "name": "card_order",
+                            "type": "select",
+                            "choices": {
+                                "date": "Newest first",
+                                "menu_order": "Manual (set each post\u2019s Order)"
+                            },
+                            "default_value": "date",
+                            "return_format": "value",
+                            "instructions": "Manual uses the Order value on each post, so the row can be arranged freely."
+                        },
+                        {
+                            "key": "field_bl_arrow",
+                            "label": "Card Arrow Icon",
+                            "name": "arrow_icon",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "instructions": "Shared by every card footer."
+                        }
+                    ]
+                },
+                {
+                    "key": "layout_projects",
+                    "name": "projects",
+                    "label": "Latest Projects",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_anchor_projects",
+                            "label": "Anchor ID",
+                            "name": "anchor_id",
+                            "type": "text",
+                            "instructions": "Optional. Used as the section id so menus can link to it, e.g. \"pricing\" for a #pricing link.",
+                            "wrapper": {
+                                "width": "30"
+                            }
+                        },
+                        {
+                            "key": "field_projects_heading_line1",
+                            "label": "Heading Line 1",
+                            "name": "heading_line1",
+                            "type": "text",
+                            "default_value": "Browse our"
+                        },
+                        {
+                            "key": "field_projects_heading_line2",
+                            "label": "Heading Line 2",
+                            "name": "heading_line2",
+                            "type": "text",
+                            "default_value": "Resources & Updates"
+                        },
+                        {
+                            "key": "field_projects_number",
+                            "label": "Number of Projects",
+                            "name": "number",
+                            "type": "number",
+                            "default_value": 3
+                        },
+                        {
+                            "key": "field_pj_arrow",
+                            "label": "Card Arrow Icon",
+                            "name": "arrow_icon",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "instructions": "Shared by every card footer."
+                        }
+                    ]
+                }
+            ],
+            "button_label": "Add Section",
+            "min": 0,
+            "max": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1789379649
+}
